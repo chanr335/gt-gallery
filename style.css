@@ -1,0 +1,22 @@
+.box{
+  background:
+    linear-gradient(
+        105deg,
+        rgb(255 255 255 / 20%) 39%,
+        rgb(51 56 57 / 100%) 96%
+      )
+    rebeccapurple;
+
+    border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+    margin-left: 20rem;
+    margin-right: 20rem;
+}
+
+.box:hover::after{
+    border-top-color: white;
+    border-bottom-color: white;
+
+}
