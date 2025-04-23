@@ -17,19 +17,7 @@ function playClick(){
 }
 
 function openBox(boxClicked){
-    switch(boxClicked){
-        case "box1":
-            document.getElementById("box1").className= "box open"
-            break;
-        case "box2":
-            document.getElementById("box2").className = "box open"
-            break;
-        case "box3":
-            document.getElementById("box3").className = "box open"
-            break;
-        case "box4":
-            document.getElementById("box4").className = "box open"
-            break;
-    }
-
+    const box = document.getElementById(boxClicked)
+    if(box.className === "box"){box.className = "box open";}
+    else if(box.className === "box open"){box.className = "box";}
 }
