@@ -1,3 +1,4 @@
+/* selection area */
 .background{
     background: black
 }
@@ -5,12 +6,10 @@
 .selection{
     display: grid;
     justify-content: center;
-    
 }
 
 
-
-
+/* box styles*/
 .box{
     background-color: rgba(35, 35, 35, 1);
     margin: 5px;
@@ -52,4 +51,6 @@
     }
 }
 
-
+.box.open{
+    background-color: rgba(100, 100, 100, 1);
+}
