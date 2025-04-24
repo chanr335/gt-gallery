@@ -52,5 +52,14 @@
 }
 
 .box.open{
+    display: flex;
     background-color: rgba(100, 100, 100, 1);
+}
+
+
+.tab{
+    background-color: green; 
+    width: 200px;
+    margin: 5px;
+    padding: 3em;
 }
