@@ -1,11 +1,18 @@
 /* selection area */
 .background{
-    background: black
+    background: black;
+}
+
+.title{
+    color: white;
+    display: flex;
+    justify-content: center;
 }
 
 .selection{
     display: grid;
     justify-content: center;
+    padding-right: 15%;
 }
 
 
@@ -13,7 +20,7 @@
 .box{
     background-color: rgba(35, 35, 35, 1);
     margin: 5px;
-    padding: 3em;
+    height: 5em;
     width: 300px;
     position: relative;
 }
@@ -51,15 +58,18 @@
     }
 }
 
-.box.open{
-    display: flex;
-    background-color: rgba(100, 100, 100, 1);
-}
-
-
 .tab{
-    background-color: green; 
-    width: 200px;
-    margin: 5px;
-    padding: 3em;
+    position: absolute;
+    margin: 10px;
+    bottom: -10px;
+    height: 5em;
+    width: 100%;
+    left: 100%;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(to right, rgba(255, 0, 0, 1) 5%, rgba(255, 0, 0, 0.5) 5%);
 }

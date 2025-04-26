@@ -17,17 +17,5 @@ function playClick(){
 }
 
 function openBox(boxClicked){
-    const box = document.getElementById(boxClicked)
-    if(box.className === "box"){
-        box.className = "box open";
-        const tab = document.createElement("p");
-        tab.className = "tab";
-        tab.id = boxClicked + "tab"
-        box.appendChild(tab);
-    }
-    else if(box.className === "box open"){
-        box.className = "box";
-        const tabId = document.getElementById(boxClicked + "tab");
-        box.removeChild(tabId);
-    }
+    
 }
