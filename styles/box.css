@@ -1,3 +1,7 @@
+:root{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;;
+}
+
 /* selection area */
 .background{
     background: black;
@@ -12,7 +16,7 @@
 .selection{
     display: grid;
     justify-content: center;
-    padding-right: 15%;
+    padding-right: 25%;
 }
 
 
@@ -21,7 +25,7 @@
     background-color: rgba(35, 35, 35, 1);
     margin: 5px;
     height: 5em;
-    width: 300px;
+    width: 500px;
     position: relative;
 }
 
@@ -68,8 +72,9 @@
     color: white;
 
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+    padding-left: 1.5em;
 
-    background: linear-gradient(to right, rgba(255, 0, 0, 1) 5%, rgba(255, 0, 0, 0.5) 5%);
+    background: linear-gradient(to right, rgba(255, 0, 0, 0.9) 2%, rgba(255, 0, 0, 0.5) 2%, black 95%);
 }
