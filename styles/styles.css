@@ -1,0 +1,31 @@
+:root{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;;
+}
+
+/* selection area */
+.background{
+    background: black;
+}
+
+.title{
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.header{
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+ul{
+    list-style-type: none;
+    display: flex;
+    justify-content:space-evenly;
+    width: 10%;
+}
+
+a{
+    color:white;
+}
