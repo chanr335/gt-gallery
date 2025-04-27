@@ -7,15 +7,15 @@ boxes.forEach(box => {
 });
 
 function playHover(){
-    let audio = new Audio("public/sounds/hover.wav")
+    let audio = new Audio("sounds/hover.wav")
     audio.play()
 }
 
 function playClick(){
-    let audio = new Audio("public/sounds/click.wav")
+    let audio = new Audio("sounds/click.wav")
     audio.play()
 }
 
-function openBox(boxClicked){
-    
-}
+// function openBox(boxClicked){
+//
+// }
