@@ -18,6 +18,12 @@
     position: relative;
 }
 
+.arrow.box{
+    width: 5%;
+    height: 50%;
+    color: white;
+}
+
 /* custom property for animateable variable */
 @property --opacity{
     syntax: "<number>";

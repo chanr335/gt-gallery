@@ -10,15 +10,3 @@ html, body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Optional shadow for effect */
     margin: 2rem;
 }
-
-.arrow{
-    border-style: solid;
-    border-color: white;
-    border-radius: 5px;
-    border: 50%;
-    width: 5%;
-    height: 50%;
-    color:white;
-    background-color: blue;
-    align-items: center;
-}

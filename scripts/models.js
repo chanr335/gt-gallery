@@ -2,8 +2,8 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x575555);
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+scene.background = new THREE.Color(0x1f1f1f);
+const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 const renderer = new THREE.WebGLRenderer({
     canvas: document.querySelector('#gallery'),
@@ -15,8 +15,9 @@ renderer.setPixelRatio(window.devicePixelRatio);
 const canvas = document.querySelector('#gallery');
 renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
 
-camera.position.setZ(18);
 camera.position.setX(0);
+camera.position.setY(2);
+camera.position.setZ(20);
 
 const pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(0, 10, 10);
@@ -43,29 +44,31 @@ let group = new THREE.Group(); // new group to wrap the model
 scene.add(group);
 
 const loader = new GLTFLoader();
-loader.load('models/GC8.glb', function (gltf) {
-    const model = gltf.scene;
+loadModelByName("GC8.glb")
 
-    // Center the model geometry
-    const box = new THREE.Box3().setFromObject(model);
-    const center = box.getCenter(new THREE.Vector3());
-    model.position.sub(center);
+export function loadModelByName(modelName) {
+    group.clear(); // remove old model
 
+    loader.load(`models/${modelName}`, function (gltf) {
+        const model = gltf.scene;
 
-    model.traverse((child) => {
-        if (child.isMesh) {
-            if (child.material) {
-                child.material.needsUpdate = true; // just mark material for updates
-                child.material.lightMapIntensity = 3; // optional tweak if you have lightmaps
-                child.material.envMapIntensity = 3;   // optional tweak if you add an environment map later
+        const box = new THREE.Box3().setFromObject(model);
+        const center = box.getCenter(new THREE.Vector3());
+        model.position.sub(center);
+
+        model.traverse((child) => {
+            if (child.isMesh && child.material) {
+                child.material.needsUpdate = true;
+                child.material.lightMapIntensity = 3;
+                child.material.envMapIntensity = 3;
             }
-        }
-    });
+        });
 
-    group.add(model); // add to group
-}, undefined, function (error) {
-    console.error(error);
-});
+        group.add(model);
+    }, undefined, function (error) {
+        console.error("Failed to load model:", error);
+    });
+}
 
 function animate() {
     requestAnimationFrame(animate);
