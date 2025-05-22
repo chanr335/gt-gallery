@@ -13,7 +13,7 @@ html, body {
 
 .scrollbar{
     display: flex;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     background-color: gray;
     height: 100px;
     margin-left: 10rem;

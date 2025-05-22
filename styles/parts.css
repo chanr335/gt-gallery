@@ -24,12 +24,20 @@
     color: white;
 }
 
-.model.box{
-    width: 20%;
+.modelbox{
+    background-color: rgba(35, 35, 35, 1);
+
+    height: 50px;
+    padding: 1rem;
+
     display: flex;
-    margin: 1rem;
+    margin: 0.5rem;
     color: white;
     align-items: center;
+
+    border-radius: 3px;
+    border-color: white;
+    border-style:solid;
 }
 
 /* custom property for animateable variable */

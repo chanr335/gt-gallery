@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 const scene = new THREE.Scene();
-const texture = new THREE.TextureLoader().load("public/background/background.png");
+const texture = new THREE.TextureLoader().load("public/gallerybg.png");
 scene.background = texture
 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
 
