@@ -17,9 +17,9 @@ const canvas = document.querySelector('#gallery');
 renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
 
 const pointLight = new THREE.PointLight(0xffffff);
-pointLight.position.set(0, 10, 10);
+pointLight.position.set(0, 20, 10);
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 3);
+const ambientLight = new THREE.AmbientLight(0xffffff, 2);
 scene.add(pointLight, ambientLight);
 
 const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
@@ -37,7 +37,7 @@ let group = new THREE.Group(); // new group to wrap the model
 scene.add(group);
 
 const loader = new GLTFLoader();
-loadModelByName("GC8.glb")
+loadModelByName("180SX.glb")
 
 export function loadModelByName(modelName) {
 
@@ -49,8 +49,7 @@ export function loadModelByName(modelName) {
         const box = new THREE.Box3().setFromObject(model);
         const center = box.getCenter(new THREE.Vector3());
         const size = box.getSize(new THREE.Vector3());
-        console.log(size)
-        // 5.5z : 2z
+
         camera.position.setX(0);
         camera.position.setY(size.getComponent(1) * 0.3);
         camera.position.setZ(size.getComponent(2) * 1.143);

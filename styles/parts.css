@@ -24,6 +24,14 @@
     color: white;
 }
 
+.model.box{
+    width: 20%;
+    display: flex;
+    margin: 1rem;
+    color: white;
+    align-items: center;
+}
+
 /* custom property for animateable variable */
 @property --opacity{
     syntax: "<number>";

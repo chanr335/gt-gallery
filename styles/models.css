@@ -10,3 +10,12 @@ html, body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Optional shadow for effect */
     margin: 2rem;
 }
+
+.scrollbar{
+    display: flex;
+    justify-content:space-evenly;
+    background-color: gray;
+    height: 100px;
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
