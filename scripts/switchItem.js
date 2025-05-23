@@ -1,14 +1,21 @@
 import { loadModelByName } from "./three.js";
 
-let index = 0;
+export let state = {modelIndex : 0}
 
 const leftArrow = document.getElementById("left");
 const rightArrow = document.getElementById("right");
 
-leftArrow.addEventListener("click", () => {switchItem(-1, models, loadModelByName)});
-rightArrow.addEventListener("click", () => {switchItem(1, models, loadModelByName)});
+leftArrow.addEventListener("click", () => {
+    state.modelIndex = emod(state.modelIndex - 1, models.length); 
+    loadItem(models[state.modelIndex], loadModelByName)
+});
 
-const models = [ 
+rightArrow.addEventListener("click", () => {
+    state.modelIndex = emod(state.modelIndex + 1, models.length); 
+    loadItem(models[state.modelIndex], loadModelByName)
+});
+
+export const MODELS = [ 
     "180SX.glb",
     "ALTEZZA.glb",
     "BM9.glb",
@@ -31,11 +38,7 @@ function emod(n, d){
     return ((n % d) + d) % d
 }
 
-function switchItem(direction, list, loadFunction){
-    loadFunction(list[emod(index + direction, list.length)]);
-    index = index + direction;
+export function loadItem(itemName, loadFunction){
+    loadFunction(itemName);
 }
 
-export function getModels(){
-    return models
-}

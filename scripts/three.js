@@ -67,7 +67,7 @@ export function loadModelByName(modelName) {
 
 function animate() {
     requestAnimationFrame(animate);
-    group.rotation.y += 0.005; // rotate the group, not the raw model
+    group.rotation.y += 0.01; // rotate the group, not the raw model
     renderer.render(scene, camera);
 }
 
