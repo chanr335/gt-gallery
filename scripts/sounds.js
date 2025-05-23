@@ -5,6 +5,16 @@ boxes.forEach(box => {
     box.addEventListener("click", playClick);  
 });
 
+addEventListener("load", () => {scrollbar()});
+
+function scrollbar(){
+    const modelBoxes = document.querySelectorAll(".modelBox");
+    modelBoxes.forEach(box => {
+        box.addEventListener("mouseover", playHover);
+        box.addEventListener("click", playClick);  
+    });
+}
+
 function playHover(){
     let audio = new Audio("sounds/hover.wav")
     audio.play()

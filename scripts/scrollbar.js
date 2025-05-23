@@ -9,7 +9,7 @@ function putOptions() {
 
     for (let i = 0; i < numBoxes; i++) {
         const box = document.createElement("div"); 
-        box.className = "modelbox";
+        box.className = "modelBox";
         box.id = `box${i}`
         box.innerHTML = models[i].slice(0, -4)
         scrollbar.appendChild(box);
