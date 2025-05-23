@@ -5,8 +5,8 @@ const musicBar = document.getElementById("musicBar");
 let musicOn = false;
 
 const MUSIC = [
-    "Dark Line - Satoshi Bando.mp3",
-    "Wave Train - Satoshi Bando.mp3",
+    "Dark Line - Satoshi Bando",
+    "Wave Train - Satoshi Bando",
 ]
 
 boxes.forEach(box => {
@@ -47,8 +47,8 @@ function playClick(){
 
 function playSong(musicOn, list){
     console.log(musicOn)
-    const songIndex = Math.floor(Math.random() * 1);
-    let audio = new Audio(`music/${list[songIndex]}` );
+    const songIndex = Math.floor(Math.random() * 2);
+    let audio = new Audio(`music/${list[songIndex]}.mp3` );
     if(musicOn){
         audio.play()
     } else{
