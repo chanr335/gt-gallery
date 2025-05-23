@@ -6,13 +6,13 @@ const leftArrow = document.getElementById("left");
 const rightArrow = document.getElementById("right");
 
 leftArrow.addEventListener("click", () => {
-    state.modelIndex = emod(state.modelIndex - 1, models.length); 
-    loadItem(models[state.modelIndex], loadModelByName)
+    state.modelIndex = emod(state.modelIndex - 1, MODELS.length); 
+    loadItem(MODELS[state.modelIndex], loadModelByName)
 });
 
 rightArrow.addEventListener("click", () => {
-    state.modelIndex = emod(state.modelIndex + 1, models.length); 
-    loadItem(models[state.modelIndex], loadModelByName)
+    state.modelIndex = emod(state.modelIndex + 1, MODELS.length); 
+    loadItem(MODELS[state.modelIndex], loadModelByName)
 });
 
 export const MODELS = [ 

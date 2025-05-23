@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 const scene = new THREE.Scene();
-const texture = new THREE.TextureLoader().load("public/gallerybg.png");
+const texture = new THREE.TextureLoader().load("gallerybg.png");
 scene.background = texture
 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
 
@@ -67,7 +67,7 @@ export function loadModelByName(modelName) {
 
 function animate() {
     requestAnimationFrame(animate);
-    group.rotation.y += 0.01; // rotate the group, not the raw model
+    group.rotation.y += 0.005; // rotate the group, not the raw model
     renderer.render(scene, camera);
 }
 

@@ -1,11 +1,31 @@
 const boxes = document.querySelectorAll(".box");
+const musicButton = document.getElementById("musicButton");
+const musicBar = document.getElementById("musicBar");
+
+let musicOn = false;
+
+const MUSIC = [
+    "Dark Line - Satoshi Bando.mp3",
+    "Wave Train - Satoshi Bando.mp3",
+]
 
 boxes.forEach(box => {
     box.addEventListener("mouseover", playHover);
     box.addEventListener("click", playClick);  
 });
 
-addEventListener("load", () => {scrollbar()});
+addEventListener("load", () => {
+    scrollbar();
+});
+
+musicButton.addEventListener("click", () =>{
+    musicOn = !musicOn;
+    const notification = document.createElement("p");
+    const songName = playSong(musicOn, MUSIC);
+    notification.innerHTML = `NOW PLAYING: ${songName}`;
+    notification.classList.add("slidingWords");
+    musicBar.appendChild(notification);
+});
 
 function scrollbar(){
     const modelBoxes = document.querySelectorAll(".modelBox");
@@ -23,4 +43,16 @@ function playHover(){
 function playClick(){
     let audio = new Audio("sounds/click.wav")
     audio.play()
+}
+
+function playSong(musicOn, list){
+    console.log(musicOn)
+    const songIndex = Math.floor(Math.random() * 1);
+    let audio = new Audio(`music/${list[songIndex]}` );
+    if(musicOn){
+        audio.play()
+    } else{
+        audio.pause()
+    }
+    return list[songIndex]
 }
