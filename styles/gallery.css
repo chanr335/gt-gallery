@@ -82,7 +82,7 @@ html, body {
     color: rgba(92, 209, 146, 1);
     border: 1px solid rgba(92, 209, 146, 0.5);
     border-radius: 5px;
-    box-shadow: inset 0 0 20px rgba(92, 209, 146, 0.8); /* inner glow fading in */
+    box-shadow: inset 0 0 30px rgba(92, 209, 146, 0.8); /* inner glow fading in */
 
     position: fixed;
     width: 100%;
@@ -106,4 +106,11 @@ html, body {
   to {
     transform: translateX(-150%); /* move entire element off the left */
   }
+}
+
+.infoSection{
+    margin-top: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
+    color: white;
 }

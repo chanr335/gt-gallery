@@ -1,4 +1,5 @@
 import { loadModelByName } from "./three.js";
+import { loadInfoByName } from "./info.js";
 
 export let state = {modelIndex : 0}
 
@@ -7,12 +8,12 @@ const rightArrow = document.getElementById("right");
 
 leftArrow.addEventListener("click", () => {
     state.modelIndex = emod(state.modelIndex - 1, MODELS.length); 
-    loadItem(MODELS[state.modelIndex], loadModelByName)
+    loadItem(MODELS[state.modelIndex], loadModelByName, loadInfoByName);
 });
 
 rightArrow.addEventListener("click", () => {
     state.modelIndex = emod(state.modelIndex + 1, MODELS.length); 
-    loadItem(MODELS[state.modelIndex], loadModelByName)
+    loadItem(MODELS[state.modelIndex], loadModelByName, loadInfoByName);
 });
 
 export const MODELS = [ 
@@ -38,7 +39,7 @@ function emod(n, d){
     return ((n % d) + d) % d
 }
 
-export function loadItem(itemName, loadFunction){
-    loadFunction(itemName);
+export function loadItem(itemName, loadModelFunction, loadInfoFunction){
+    loadModelFunction(itemName);
+    loadInfoFunction(itemName);
 }
-

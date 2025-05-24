@@ -1,5 +1,6 @@
 import { state, loadItem, MODELS} from "./switchItem";
 import { loadModelByName } from "./three.js";
+import { loadInfoByName } from "./info.js";
 
 const scrollbar = document.getElementById("scrollbar");
 addEventListener("load", () => {addModelBoxesToDOM(scrollbar, createModelBoxes(MODELS))});
@@ -16,7 +17,7 @@ function createModelBoxes(models){
         // image.innerHTML = models[index].split(".")[0]
         image.addEventListener("click", () => {
             state.modelIndex = index;
-            loadItem(models[state.modelIndex], loadModelByName);  
+            loadItem(models[state.modelIndex], loadModelByName, loadInfoByName);  
         });
         return image
     });
