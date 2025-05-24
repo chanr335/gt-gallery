@@ -38,7 +38,7 @@ scene.add(directionalLight, directionalLight2);
 let group = new THREE.Group(); // new group to wrap the model
 scene.add(group);
 
-group.rotateY(15);
+// group.rotateY(-4.71);//SCREENSHOT
 
 const loader = new GLTFLoader();
 loadModelByName("180SX.glb")
@@ -56,6 +56,7 @@ export function loadModelByName(modelName) {
 
         camera.position.setX(0);
         camera.position.setY(size.getComponent(1) * 0.3);
+        // camera.position.setY(size.getComponent(1) * 0.3 - 1.5); //SCREENSHOT
         camera.position.setZ(size.getComponent(2) * 1.143);
 
         directionalLight.position.set(10, 10, 10);
@@ -65,7 +66,7 @@ export function loadModelByName(modelName) {
 
         group.add(model);
 
-        // renderer.render(scene, camera); //SCREENSHOT
+        // renderer.render(scene, camera);
         // saveCanvasScreenshot(`${modelName.split(".")[0]}.png`) //SCREENSHOT
     }, undefined, function (error) {
         console.error("Failed to load model:", error);
