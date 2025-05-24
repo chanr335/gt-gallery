@@ -108,3 +108,10 @@ html, body {
     margin-right: 20%;
     color: white;
 }
+
+.carImage{
+    width: 50%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+}

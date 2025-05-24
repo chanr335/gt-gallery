@@ -1,10 +1,26 @@
 const infoSection = document.getElementById("infoSection");
+let currentModel = "";
 export function loadInfoByName(modelName){
-    modelMap[modelName].forEach((words) =>{
+    if(modelName != currentModel){
+        while(infoSection.lastElementChild){
+            infoSection.removeChild(infoSection.lastElementChild);
+        }
+    }
+    
+    currentModel = modelName
+    modelMap[modelName].forEach((words, index) =>{
         const line = document.createElement("p");
         line.class = "blurb"
         line.innerHTML = words
         infoSection.appendChild(line);
+
+        const image = document.createElement("img");
+        const imagePath = `images/${modelName.split(".")[0]}_${index}.jpeg`
+        image.src = imagePath
+        image.classList.add("carImage");
+        image.onload = () => {
+            infoSection.insertBefore(image, line.nextSibling);
+        };
     });
 }
 
