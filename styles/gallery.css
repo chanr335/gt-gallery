@@ -32,7 +32,6 @@ html, body {
 
 .modelBox{
     background-color: rgba(35, 35, 35, 1);
-    height: 50%;
     padding: 10px;
     display:flex;
     justify-content: center;
@@ -40,10 +39,6 @@ html, body {
     margin: 0.5rem;
     color: white;
     position: relative;
-
-    border-style: double;
-    border-width: 2px;
-    
 }
 
 
@@ -84,13 +79,13 @@ html, body {
     font-size: 200%;
     letter-spacing: -7px;
 
-    color: rgba(0, 150, 255, 1);
-    border: 1px solid rgba(0, 150, 255, 0.5);
+    color: rgba(92, 209, 146, 1);
+    border: 1px solid rgba(92, 209, 146, 0.5);
     border-radius: 5px;
-    box-shadow: inset 0 0 20px rgba(0, 150, 255, 0.8); /* inner glow fading in */
+    box-shadow: inset 0 0 20px rgba(92, 209, 146, 0.8); /* inner glow fading in */
 
     position: fixed;
-    width: 99%;
+    width: 100%;
     height: 5%;
     bottom: 5px;
 

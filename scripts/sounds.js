@@ -3,10 +3,12 @@ const musicButton = document.getElementById("musicButton");
 const musicBar = document.getElementById("musicBar");
 
 let musicOn = false;
+let audio = new Audio();
 
 const MUSIC = [
     "Dark Line - Satoshi Bando",
     "Wave Train - Satoshi Bando",
+    "lose ya - asc",
 ]
 
 boxes.forEach(box => {
@@ -20,11 +22,18 @@ addEventListener("load", () => {
 
 musicButton.addEventListener("click", () =>{
     musicOn = !musicOn;
-    const notification = document.createElement("p");
-    const songName = playSong(musicOn, MUSIC);
-    notification.innerHTML = `NOW PLAYING: ${songName}`;
-    notification.classList.add("slidingWords");
-    musicBar.appendChild(notification);
+    const songIndex = Math.floor(Math.random() * MUSIC.length);
+    audio.src = `music/${MUSIC[songIndex]}.mp3` 
+
+    if(musicOn){
+        const notification = document.createElement("p");
+        notification.innerHTML = `NOW PLAYING: ${MUSIC[songIndex]}`;
+        notification.classList.add("slidingWords");
+        audio.play()
+        musicBar.appendChild(notification);
+    } else{
+        audio.pause()
+    }
 });
 
 function scrollbar(){
@@ -43,16 +52,4 @@ function playHover(){
 function playClick(){
     let audio = new Audio("sounds/click.wav")
     audio.play()
-}
-
-function playSong(musicOn, list){
-    console.log(musicOn)
-    const songIndex = Math.floor(Math.random() * 2);
-    let audio = new Audio(`music/${list[songIndex]}.mp3` );
-    if(musicOn){
-        audio.play()
-    } else{
-        audio.pause()
-    }
-    return list[songIndex]
 }

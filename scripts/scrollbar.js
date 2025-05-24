@@ -10,20 +10,20 @@ function createModelBoxes(models){
     // Create the box element
     // per iteration, it will return/add the box into the map's return list
     return models.map((_, index) => {
-        const box = document.createElement("div"); 
-        box.className = "modelBox";
-        box.id = `box${index}`
-        box.innerHTML = models[index].split(".")[0]
-        box.addEventListener("click", () => {
+        const image = document.createElement("img"); 
+        image.className = "modelBox";
+        image.src = `models/thumbnails/${models[index].split(".")[0]}.png`
+        // image.innerHTML = models[index].split(".")[0]
+        image.addEventListener("click", () => {
             state.modelIndex = index;
             loadItem(models[state.modelIndex], loadModelByName);  
         });
-        return box
+        return image
     });
 }
 
 function addModelBoxesToDOM(container, modelBoxes) {
-    modelBoxes.forEach((box) => {
-        container.appendChild(box)
+    modelBoxes.forEach((image) => {
+        container.appendChild(image)
     })
 }

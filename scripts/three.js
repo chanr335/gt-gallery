@@ -8,6 +8,8 @@ const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerH
 
 const renderer = new THREE.WebGLRenderer({
     canvas: document.querySelector('#gallery'),
+    // alpha: true, //SCREENSHOT
+    // preserveDrawingBuffer: true, //SCREENSHOT
 });
 
 renderer.setPixelRatio(window.devicePixelRatio);
@@ -36,6 +38,8 @@ scene.add(directionalLight, directionalLight2);
 let group = new THREE.Group(); // new group to wrap the model
 scene.add(group);
 
+group.rotateY(15);
+
 const loader = new GLTFLoader();
 loadModelByName("180SX.glb")
 
@@ -60,9 +64,22 @@ export function loadModelByName(modelName) {
         model.position.sub(center);
 
         group.add(model);
+
+        // renderer.render(scene, camera); //SCREENSHOT
+        // saveCanvasScreenshot(`${modelName.split(".")[0]}.png`) //SCREENSHOT
     }, undefined, function (error) {
         console.error("Failed to load model:", error);
     });
+}
+
+function saveCanvasScreenshot(fileName = "screenshot.png") {
+    const dataURL = renderer.domElement.toDataURL("image/png");
+    const link = document.createElement("a");
+    link.style = "color:white"
+    link.innerHTML = "download"
+    link.href = dataURL;
+    link.download = fileName;
+    link.click();
 }
 
 function animate() {
