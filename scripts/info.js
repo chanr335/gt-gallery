@@ -6,11 +6,10 @@ export function loadInfoByName(modelName){
             infoSection.removeChild(infoSection.lastElementChild);
         }
     }
-    
     currentModel = modelName
     modelMap[modelName].forEach((words, index) =>{
         const line = document.createElement("p");
-        line.class = "blurb"
+        line.class = "info"
         line.innerHTML = words
         infoSection.appendChild(line);
 
