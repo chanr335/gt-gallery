@@ -89,7 +89,7 @@ function playClick(){
 function draw(){
     requestAnimationFrame(draw);
     analyser.getByteFrequencyData(dataArray);
-    canvasCtx.fillStyle = "rgba(255,255,255)";
+    canvasCtx.fillStyle = "black";
     canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
 
     const barWidth = (WIDTH / bufferLength) * 1.5;
