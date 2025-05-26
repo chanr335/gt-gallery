@@ -2,7 +2,7 @@ import { state, loadItem, MODELS} from "./switchItem";
 import { loadModelByName } from "./three.js";
 import { loadInfoByName } from "./info.js";
 
-const scrollbar = document.getElementById("scrollbar");
+const scrollbar = document.getElementById("scrollbarSection");
 addEventListener("load", () => {addModelBoxesToDOM(scrollbar, createModelBoxes(MODELS))});
 
 //Separate the creation and appending of the scrollbar's model boxes

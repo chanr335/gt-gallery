@@ -1,5 +1,5 @@
 const boxes = document.querySelectorAll(".box");
-const musicButton = document.getElementById("musicButton");
+const musicButton = document.getElementById("radioOption");
 const musicBar = document.getElementById("musicBar");
 
 let musicOn = false;
@@ -93,13 +93,30 @@ function draw(){
     canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
 
     const barWidth = (WIDTH / bufferLength) * 1.5;
+    const blockHeight = 4;
+    const gap = 1;
     let x = 0;
 
     for (let i = 0; i < bufferLength; i++) {
         const barHeight = dataArray[i];
+        const blocks = Math.floor(barHeight / (blockHeight + gap)) / 2;
+        
+        for (let j = 0; j < blocks; j++) {
+            const y = HEIGHT - (j * (blockHeight + gap)) - blockHeight;
 
-        canvasCtx.fillStyle = `rgb(92, 209, 146)`;
-        canvasCtx.fillRect(x, HEIGHT - barHeight / 3, barWidth, barHeight);
+            //block gradient 
+            const gradient = canvasCtx.createLinearGradient(x, y, x, y + blockHeight);
+            gradient.addColorStop(0, "#6efff6"); // top - light blue
+            gradient.addColorStop(1, "#1f4e55"); // bottom - dark blue
+
+            canvasCtx.fillStyle = gradient;
+            canvasCtx.fillRect(x, y, barWidth, blockHeight);
+
+            //inset border
+            canvasCtx.strokeStyle = "rgba(0, 0, 0, 0.3)";
+            canvasCtx.lineWidth = 1;
+            canvasCtx.strokeRect(x, y, barWidth, blockHeight);
+        }
         x += barWidth + 1;
     }
 }

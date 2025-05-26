@@ -19,7 +19,6 @@ rightArrow.addEventListener("click", () => {
 export const MODELS = [ 
     "180SX.glb",
     "ALTEZZA.glb",
-    "BM9.glb",
     "BRZ13.glb",
     "BRZ22.glb",
     "EVO9.glb",
