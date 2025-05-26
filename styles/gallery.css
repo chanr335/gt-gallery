@@ -16,27 +16,42 @@ html, body {
     margin: 1rem;
 }
 
-.options{
+.optionSection{
     background-color: rgba(35, 35, 35, 1);
     padding: 5px;
-    width: 5%;
+    width: 4.5%;
     color: white;
     border: 3px outset gray;
 
     left: 5px;
     display: flex;
-    justify-content: center;
     position: absolute;
 
     transition: 
         width 0.4s ease,
-        margin-left 0.4s ease,
         justify-content 0.4s ease;
 }
 
-.options.open{
-    width: 20%;
+.optionSection.open{
+    width: 25%;
     justify-content: space-evenly;
+}
+
+.option{
+    display: flex;
+    justify-content: space-between;
+}
+
+.optionLight{
+    border: 2px solid white; 
+    border-radius: 3px;
+    width: 10px;
+    height: 10px;
+    background-color: gray;
+}
+
+.optionLight.on{
+    background-color: green;
 }
 
 .modelBox{

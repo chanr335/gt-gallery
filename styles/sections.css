@@ -4,7 +4,6 @@
     padding-right: 25%;
 }
 
-
 /* box styles*/
 .arrow{
     background-color: rgba(35, 35, 35, 1);
@@ -32,9 +31,9 @@
 }
 
 .headunit{
-object-fit: contain;
-width: 50%;
-height: 50%;
+    object-fit: contain;
+    width: 50%;
+    height: 50%;
 }
 
 .visualizer{
@@ -78,7 +77,7 @@ height: 50%;
   position: fixed;
   white-space: nowrap;
   transform: translateX(100vw); /* start fully off-screen to the right */
-  animation: slideAcross 10s linear forwards;
+  animation: slideAcross 15s linear forwards;
   animation-delay: 2s;
 }
 
