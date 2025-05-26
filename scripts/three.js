@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { MODELS } from './switchItem';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 
 const scene = new THREE.Scene();
 const texture = new THREE.TextureLoader().load("gallerybg.png");
@@ -43,53 +43,46 @@ scene.add(group);
 
 // group.rotateY(4.71);//SCREENSHOT
 
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/'); // CDN hosted decoder
+
 const loader = new GLTFLoader();
-const modelCache = {};
+loader.setDRACOLoader(dracoLoader);
 
 const box = new THREE.Box3();
 const sizeVec = new THREE.Vector3();
 const centerVec = new THREE.Vector3();
-
-function preloadModels(){
-    MODELS.forEach((name) => {
-        loader.load(`models/${name}`, (gltf) => {
-            modelCache[name] = gltf.scene;
-
-            if(name === "180SX.glb"){
-                loadModelByName(name);
-            }
-        });
-    });
-}
+loadModelByName("180SX.glb");
 
 export function loadModelByName(modelName) {
     group.clear(); // Clear previous model
 
-    const cachedModel = modelCache[modelName];
-    if (!cachedModel) {
-        console.warn(`Model ${modelName} is not loaded yet.`);
-        return;
+    loader.load(
+    `models/${modelName}`,
+    function(gltf){
+        const model = gltf.scene;
+        // Compute bounding box and scale model
+        box.setFromObject(model);
+        box.getSize(sizeVec);
+        const scaleFactor = 2.0 / Math.max(sizeVec.x, sizeVec.y, sizeVec.z);
+        model.scale.setScalar(scaleFactor);
+
+        // Recompute bounding box after scaling
+        box.setFromObject(model);
+        box.getCenter(centerVec);
+        model.position.sub(centerVec); // Center the model
+
+        group.add(model); // Add directly to group
+
+        // Adjust camera based on scaled size
+        box.getSize(sizeVec); // Size already scaled
+        camera.position.set(0, sizeVec.y * 0.5, sizeVec.z * 1.2);
+        camera.lookAt(0, 0, 0);
+    }, undefined,
+    function(error){
+        console.error("Failed to load model:", error);
     }
-
-    const model = cachedModel.clone(true);
-
-    // Compute bounding box and scale model
-    box.setFromObject(model);
-    box.getSize(sizeVec);
-    const scaleFactor = 2.0 / Math.max(sizeVec.x, sizeVec.y, sizeVec.z);
-    model.scale.setScalar(scaleFactor);
-
-    // Recompute bounding box after scaling
-    box.setFromObject(model);
-    box.getCenter(centerVec);
-    model.position.sub(centerVec); // Center the model
-
-    group.add(model); // Add directly to group
-
-    // Adjust camera based on scaled size
-    box.getSize(sizeVec); // Size already scaled
-    camera.position.set(0, sizeVec.y * 0.5, sizeVec.z * 1.2);
-    camera.lookAt(0, 0, 0);
+  );
 }
 
 function saveCanvasScreenshot(fileName = "screenshot.png") {
@@ -109,4 +102,3 @@ function animate() {
 }
 
 animate();
-preloadModels();
