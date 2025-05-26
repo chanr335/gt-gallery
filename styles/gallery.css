@@ -19,7 +19,8 @@ html, body {
 .optionSection{
     background-color: rgba(35, 35, 35, 1);
     padding: 5px;
-    padding-left:10px;
+    padding-left:2%;
+    padding-right: 1%;
     color: white;
     border: 3px outset gray;
     width: 6%;

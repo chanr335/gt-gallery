@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GT-GALLERY</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+
+    <script src="scripts/sounds.js" defer></script>
+    <script type="module" crossorigin src="/gt-gallery/assets/index-DwbwQB1P.js"></script>
+    <link rel="stylesheet" crossorigin href="/gt-gallery/assets/index-CikxvEhU.css">
+  </head>
+
+  <body class="background">
+    <div class="optionSection" id="optionSection">OPTIONS
+        <div class="option hidden" id="scrollbarOption">
+            scrollbar <div class="optionLight hidden" id="optionLight1"></div>
+        </div>
+        <div class="option hidden" id="radioOption">
+            radio <div class="optionLight hidden on" id="optionLight2"></div>
+        </div>
+        <div class="option hidden" id="infoOption">
+            info <div class="optionLight hidden" id="optionLight3"></div>
+        </div>
+    </div>
+    <div style="display: flex; justify-content: center;" >
+        <img src="logo.png" draggable="false" style="width: 10%; opacity: 0.8;"></img>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <button type="button" id="left" class="arrow box">&lt;</button>
+        <canvas class="gallery" id="gallery"></canvas>
+        <button type="button" id="right" class="arrow box">&gt;</button>
+    </div>
+    <div class="scrollbar hidden" id="scrollbarSection">
+    </div>
+    <div class="radio" id="radioSection">
+        <div class="volumeDial" id="volumeDial"></div>
+        <div class="radioOnButton" id="radioOnButton"></div>
+        <div class="volume" id="volume"></div>
+        <img class="headunit" draggable="false" src="headunit.png"></img>
+        <canvas class="visualizer" id="visualizer"></canvas>
+    </div>
+    <div class="infoSection hidden" id="infoSection">
+    </div>
+    <div class="musicBar off" id="musicBar">
+    </div>
+    <div style="height: 300px">
+    </div>
+  </body>
+</html>
