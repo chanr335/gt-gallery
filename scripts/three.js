@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { MODELS } from './switchItem';
 
 const scene = new THREE.Scene();
 const texture = new THREE.TextureLoader().load("gallerybg.png");
@@ -43,42 +44,52 @@ scene.add(group);
 // group.rotateY(4.71);//SCREENSHOT
 
 const loader = new GLTFLoader();
-loadModelByName("180SX.glb")
+const modelCache = {};
 
 const box = new THREE.Box3();
 const sizeVec = new THREE.Vector3();
 const centerVec = new THREE.Vector3();
 
+function preloadModels(){
+    MODELS.forEach((name) => {
+        loader.load(`models/${name}`, (gltf) => {
+            modelCache[name] = gltf.scene;
+
+            if(name === "180SX.glb"){
+                loadModelByName(name);
+            }
+        });
+    });
+}
+
 export function loadModelByName(modelName) {
     group.clear(); // Clear previous model
 
-    loader.load(
-    `models/${modelName}`,
-    function (gltf) {
-        const model = gltf.scene;
+    const cachedModel = modelCache[modelName];
+    if (!cachedModel) {
+        console.warn(`Model ${modelName} is not loaded yet.`);
+        return;
+    }
 
-        // Compute bounding box and scale model
-        box.setFromObject(model);
-        box.getSize(sizeVec);
-        const scaleFactor = 2.0 / Math.max(sizeVec.x, sizeVec.y, sizeVec.z);
-        model.scale.setScalar(scaleFactor);
+    const model = cachedModel.clone(true);
 
-        // Recompute bounding box after scaling
-        box.setFromObject(model);
-        box.getCenter(centerVec);
-        model.position.sub(centerVec); // Center the model
+    // Compute bounding box and scale model
+    box.setFromObject(model);
+    box.getSize(sizeVec);
+    const scaleFactor = 2.0 / Math.max(sizeVec.x, sizeVec.y, sizeVec.z);
+    model.scale.setScalar(scaleFactor);
 
-        group.add(model); // Add directly to group
+    // Recompute bounding box after scaling
+    box.setFromObject(model);
+    box.getCenter(centerVec);
+    model.position.sub(centerVec); // Center the model
 
-        // Adjust camera based on scaled size
-        box.getSize(sizeVec); // Size already scaled
-        camera.position.set(0, sizeVec.y * 0.5, sizeVec.z * 1.2);
-        camera.lookAt(0, 0, 0);
-    },
-    undefined,
-    function (error) {
-        console.error("Failed to load model:", error);
-    });
+    group.add(model); // Add directly to group
+
+    // Adjust camera based on scaled size
+    box.getSize(sizeVec); // Size already scaled
+    camera.position.set(0, sizeVec.y * 0.5, sizeVec.z * 1.2);
+    camera.lookAt(0, 0, 0);
 }
 
 function saveCanvasScreenshot(fileName = "screenshot.png") {
@@ -98,3 +109,4 @@ function animate() {
 }
 
 animate();
+preloadModels();

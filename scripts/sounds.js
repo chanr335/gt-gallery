@@ -149,6 +149,7 @@ dial.addEventListener("mousedown", (e) => {
     dial.style.cursor = "grabbing";
     volume.classList.remove("hidden");
     canvas.classList.add("hidden")
+    volume.textContent = `VOL ${Math.floor(audio.volume * 10)}`
 });
 
 document.addEventListener("mouseup", () => {

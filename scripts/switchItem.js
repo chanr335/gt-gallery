@@ -3,19 +3,6 @@ import { loadInfoByName } from "./info.js";
 
 export let state = {modelIndex : 0}
 
-const leftArrow = document.getElementById("left");
-const rightArrow = document.getElementById("right");
-
-leftArrow.addEventListener("click", () => {
-    state.modelIndex = emod(state.modelIndex - 1, MODELS.length); 
-    loadItem(MODELS[state.modelIndex], loadModelByName, loadInfoByName);
-});
-
-rightArrow.addEventListener("click", () => {
-    state.modelIndex = emod(state.modelIndex + 1, MODELS.length); 
-    loadItem(MODELS[state.modelIndex], loadModelByName, loadInfoByName);
-});
-
 export const MODELS = [ 
     "180SX.glb",
     "ALTEZZA.glb",
@@ -33,6 +20,19 @@ export const MODELS = [
     "STI07.glb",
     "STI08.glb",
 ];
+
+const leftArrow = document.getElementById("left");
+const rightArrow = document.getElementById("right");
+
+leftArrow.addEventListener("click", () => {
+    state.modelIndex = emod(state.modelIndex - 1, MODELS.length); 
+    loadItem(MODELS[state.modelIndex], loadModelByName, loadInfoByName);
+});
+
+rightArrow.addEventListener("click", () => {
+    state.modelIndex = emod(state.modelIndex + 1, MODELS.length); 
+    loadItem(MODELS[state.modelIndex], loadModelByName, loadInfoByName);
+});
 
 function emod(n, d){
     return ((n % d) + d) % d
