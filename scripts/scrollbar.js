@@ -15,7 +15,7 @@ function createModelBoxes(models){
         const image = document.createElement("img"); 
         box.className = "modelBox";
         box.appendChild(image);
-        image.src = `models/thumbnails/${models[index].split(".")[0]}.png`
+        image.src = `models/thumbnails/${models[index].split(".")[0]}.webp`
         image.addEventListener("click", () => {
             state.modelIndex = index;
             loadItem(models[state.modelIndex], loadModelByName, loadInfoByName);  
