@@ -13,7 +13,7 @@ html, body {
     width: 40%;
     border: 2px solid #333; /* Optional border */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Optional shadow for effect */
-    margin: 1rem;
+    margin: 0.5rem;
 }
 
 .optionSection{
@@ -40,18 +40,28 @@ html, body {
 .option{
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .optionLight{
-    border: 2px solid white; 
-    border-radius: 3px;
-    width: 10px;
-    height: 10px;
-    background-color: gray;
+/*     border: 2px solid white;  */
+/*     width: 10px; */
+/*     height: 10px; */
+/*     background-color: gray; */
+  background: radial-gradient(circle at 30% 30%, #222 0%, #000 100%);
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 
+    inset -2px -2px 5px rgba(0, 0, 0, 0.6),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.5);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
 }
 
 .optionLight.on{
-    background-color: green;
+  background: radial-gradient(circle at 30% 30%, rgba(92, 209, 146, 0.5), #000 100%);
 }
 
 .modelBox{
@@ -62,7 +72,6 @@ html, body {
     color: white;
     position: relative;
 }
-
 
 /* custom property for animateable variable */
 @property --opacity{

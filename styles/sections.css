@@ -38,9 +38,9 @@
 
 .visualizer{
     position: absolute; 
-    width: 27.5%;
-    height: 12%;
-    margin-top: 4%;
+    width: 27.75%;
+    height: 15%;
+    margin-top: 3.5%;
     margin-right: 1%;
 }
 
@@ -73,6 +73,11 @@
     display: none;
 }
 
+.musicBar.hidden{
+    opacity: 0;
+    pointer-events: none;
+}
+
 .slidingWords {
   position: fixed;
   white-space: nowrap;
@@ -88,14 +93,14 @@
 }
 
 .infoSection{
-    margin-top: 10%;
+    margin-top: 1%;
     margin-left: 20%;
     margin-right: 20%;
+    padding: 2%;
     color: rgba(255, 255, 255, 0.8);
-    padding: 2px;
     text-align: justify;
-    /* background-color: rgba(43,43,43, 0.5); */
-    /* border-style: outset; */
+    background-color: rgba(43,43,43, 0.5);
+    border-style: outset;
 
 }
 

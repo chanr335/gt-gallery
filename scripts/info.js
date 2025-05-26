@@ -1,19 +1,19 @@
 const infoSection = document.getElementById("infoSection");
-let currentModel = "180SX.glb";
+let currentModel = "";
 
 export function loadInfoByName(modelName){
     if(modelName != currentModel){
         while(infoSection.lastElementChild){
             infoSection.removeChild(infoSection.lastElementChild);
         }
+        currentModel = modelName
+        modelMap[modelName].forEach((words, index) =>{
+            const line = document.createElement("p");
+            line.className = "info";
+            line.textContent = words
+            infoSection.appendChild(line);
+        });
     }
-    currentModel = modelName
-    modelMap[modelName].forEach((words, index) =>{
-        const line = document.createElement("p");
-        line.className = "info";
-        line.textContent = words
-        infoSection.appendChild(line);
-    });
 }
 
 const _STI07 = [
@@ -103,3 +103,5 @@ const modelMap = {
     "STI08.glb":_STI08,
 } 
 
+
+loadInfoByName("180SX.glb");

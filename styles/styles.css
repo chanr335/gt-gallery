@@ -5,6 +5,7 @@
     /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;; */
     font-family: 'Orbitron', sans-serif;
     letter-spacing: 2px;
+    user-select: none;
 }
 
 /* selection area */

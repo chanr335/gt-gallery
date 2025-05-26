@@ -8,6 +8,7 @@ let audio = new Audio();
 //Visualizer Globals
 const audioCtx = new window.AudioContext();
 const analyser = audioCtx.createAnalyser();
+const source = audioCtx.createMediaElementSource(audio);
 
 analyser.fftSize = 64;
 const bufferLength = analyser.frequencyBinCount;
@@ -41,7 +42,6 @@ musicButton.addEventListener("click", () =>{
     audio.src = `music/${MUSIC[songIndex]}.mp3` 
    
     //hook to audio
-    const source = audioCtx.createMediaElementSource(audio);
     source.connect(analyser);
     analyser.connect(audioCtx.destination);
      
