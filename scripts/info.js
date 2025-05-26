@@ -1,5 +1,6 @@
 const infoSection = document.getElementById("infoSection");
-let currentModel = "";
+let currentModel = "180SX.glb";
+
 export function loadInfoByName(modelName){
     if(modelName != currentModel){
         while(infoSection.lastElementChild){
@@ -101,3 +102,4 @@ const modelMap = {
     "STI07.glb":_STI07,
     "STI08.glb":_STI08,
 } 
+

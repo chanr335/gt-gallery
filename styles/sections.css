@@ -15,7 +15,6 @@
     color: white;
 }
 
-
 .scrollbar{
     display: flex;
     justify-content: space-evenly;
@@ -25,7 +24,6 @@
     margin-right: 20%;
     overflow: auto; 
 }
-
 
 .radio{
     display: flex;

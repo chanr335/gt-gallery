@@ -16,13 +16,13 @@
   </head>
 
   <body class="background">
-    <div style="display: flex; justify-content: center;" >
-        <img src="logo.png" style="width: 10%; opacity: 0.8;"></img>
-    </div>
-    <div class="options" id="options">-
+    <div class="options" id="options">OPTIONS
         <div class="option hidden" id="scrollbarOption">scrollbar</div>
         <div class="option hidden" id="radioOption">radio</div>
         <div class="option hidden" id="infoOption">info</div>
+    </div>
+    <div style="display: flex; justify-content: center;" >
+        <img src="logo.png" draggable="false" style="width: 10%; opacity: 0.8;"></img>
     </div>
     <div style="display: flex; justify-content: center; align-items: center;">
         <button type="button" id="left" class="arrow box">&lt;</button>
@@ -32,7 +32,7 @@
     <div class="scrollbar hidden" id="scrollbarSection">
     </div>
     <div class="radio hidden" id="radioSection">
-        <img class="headunit" src="headunit.png"></img>
+        <img class="headunit" draggable="false" src="headunit.png"></img>
         <canvas class="visualizer" id="frequency"></canvas>
     </div>
     <div class="infoSection hidden" id="infoSection">
