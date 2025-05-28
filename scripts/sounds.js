@@ -2,6 +2,7 @@ import { MUSIC } from "./constants";
 
 const boxes = document.querySelectorAll(".box");
 const musicButton = document.getElementById("radioOnButton");
+const skipButton = document.getElementById("skipButton");
 const musicBar = document.getElementById("musicBar");
 const dial = document.getElementById("volumeDial");
 const volume = document.getElementById("volume");
@@ -41,6 +42,8 @@ musicButton.addEventListener("mouseover", playHover);
 musicButton.addEventListener("click", playClick);
 optionSection.addEventListener("mouseover", playHover);
 optionSection.addEventListener("click", playClick);
+skipButton.addEventListener("mouseover", playHover);
+skipButton.addEventListener("click", playClick);
 
 audio.addEventListener("ended", () =>{
     const songIndex = Math.floor(Math.random() * MUSIC.length);
@@ -57,6 +60,10 @@ musicButton.addEventListener("click", () =>{
     source.connect(analyser);
     analyser.connect(audioCtx.destination);
     playSong(musicOn, songIndex); 
+});
+
+skipButton.addEventListener("click", () =>{
+    audio.currentTime = audio.duration;
 });
 
 function scrollbar(){

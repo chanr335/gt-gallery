@@ -2,7 +2,9 @@ export const MUSIC = [
     "Dark Line - Satoshi Bando",
     "Wave Train - Satoshi Bando",
     "lose ya - asc",
-    "cartz - gummp3"
+    "cartz - gummp3",
+    "sega marine fishing",
+    "Zeus - CSH BGM 08",
 ]
 
 export const MODELS = [ 

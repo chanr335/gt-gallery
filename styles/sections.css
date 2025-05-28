@@ -59,6 +59,16 @@
     cursor: pointer;
 }
 
+.skipButton{
+    border-radius: 4px;
+    position: absolute;
+    width: 2.1%;
+    height: 13.5%;
+    right: 29.6%;
+    bottom: 17.4%;
+    cursor: pointer;
+}
+
 .volume{
     font-family: Time, sans-serif;
     font-size: 200%;
