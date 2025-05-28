@@ -52,7 +52,6 @@ loader.setDRACOLoader(dracoLoader);
 const box = new THREE.Box3();
 const sizeVec = new THREE.Vector3();
 const centerVec = new THREE.Vector3();
-loadModelByName("180SX.glb");
 
 export function loadModelByName(modelName) {
     group.clear(); // Clear previous model
@@ -95,10 +94,8 @@ function saveCanvasScreenshot(fileName = "screenshot.png") {
     link.click();
 }
 
-function animate() {
+export function animate() {
     requestAnimationFrame(animate);
     group.rotation.y += 0.005; // rotate the group, not the raw model
     renderer.render(scene, camera);
 }
-
-animate();

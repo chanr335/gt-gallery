@@ -1,3 +1,5 @@
+import { MUSIC } from "./constants";
+
 const boxes = document.querySelectorAll(".box");
 const musicButton = document.getElementById("radioOnButton");
 const musicBar = document.getElementById("musicBar");
@@ -24,14 +26,6 @@ const canvas = document.getElementById("visualizer");
 const canvasCtx = canvas.getContext("2d");
 const WIDTH = canvas.width;
 const HEIGHT = canvas.height;
-
-
-const MUSIC = [
-    "Dark Line - Satoshi Bando",
-    "Wave Train - Satoshi Bando",
-    "lose ya - asc",
-    "cartz"
-]
 
 addEventListener("load", () => {
     scrollbar();

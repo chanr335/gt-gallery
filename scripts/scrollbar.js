@@ -1,12 +1,9 @@
-import { state, loadItem, MODELS} from "./switchItem";
+import { loadItem} from "./switchItem";
+import { state } from "./index.js";
 import { loadModelByName } from "./three.js";
-import { loadInfoByName } from "./info.js";
-
-const scrollbar = document.getElementById("scrollbarSection");
-addEventListener("load", () => {addModelBoxesToDOM(scrollbar, createModelBoxes(MODELS))});
 
 //Separate the creation and appending of the scrollbar's model boxes
-function createModelBoxes(models){
+export function createModelBoxes(models){
     // Map the every model in models to a box according to index
     // Create the box element
     // per iteration, it will return/add the box into the map's return list
@@ -18,13 +15,13 @@ function createModelBoxes(models){
         image.src = `models/thumbnails/${models[index].split(".")[0]}.webp`
         image.addEventListener("click", () => {
             state.modelIndex = index;
-            loadItem(models[state.modelIndex], loadModelByName, loadInfoByName);  
+            loadItem(models[state.modelIndex], loadModelByName);  
         });
         return box 
     });
 }
 
-function addModelBoxesToDOM(container, modelBoxes) {
+export function addModelBoxesToDOM(container, modelBoxes) {
     modelBoxes.forEach((image) => {
         container.appendChild(image)
     })

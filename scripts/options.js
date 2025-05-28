@@ -13,31 +13,33 @@ const info = document.getElementById("infoSection")
 const optionLight3 = document.getElementById("optionLight3");
 
 
-optionSection.addEventListener("click", (e) => {
-    if(e.target === optionSection){ //click exactly on options
-        optionSection.classList.toggle("open");
-        scrollbarOption.classList.toggle("hidden")
-        optionLight1.classList.toggle("hidden");
+export function setupOptions(){
+    optionSection.addEventListener("click", (e) => {
+        if(e.target === optionSection){ //click exactly on options
+            optionSection.classList.toggle("open");
+            scrollbarOption.classList.toggle("hidden")
+            optionLight1.classList.toggle("hidden");
 
-        radioOption.classList.toggle("hidden")
-        optionLight2.classList.toggle("hidden");
+            radioOption.classList.toggle("hidden")
+            optionLight2.classList.toggle("hidden");
 
-        infoOption.classList.toggle("hidden")
-        optionLight3.classList.toggle("hidden");
-    }
-});
+            infoOption.classList.toggle("hidden")
+            optionLight3.classList.toggle("hidden");
+        }
+    });
 
-scrollbarOption.addEventListener("click", () => {
-    scrollbar.classList.toggle("hidden");
-    optionLight1.classList.toggle("on");
-});
+    scrollbarOption.addEventListener("click", () => {
+        scrollbar.classList.toggle("hidden");
+        optionLight1.classList.toggle("on");
+    });
 
-radioOption.addEventListener("click", () => {
-    radio.classList.toggle("hidden");
-    optionLight2.classList.toggle("on");
-});
+    radioOption.addEventListener("click", () => {
+        radio.classList.toggle("hidden");
+        optionLight2.classList.toggle("on");
+    });
 
-infoOption.addEventListener("click", () => {
-    info.classList.toggle("hidden");
-    optionLight3.classList.toggle("on");
-});
+    infoOption.addEventListener("click", () => {
+        info.classList.toggle("hidden");
+        optionLight3.classList.toggle("on");
+    });
+}
