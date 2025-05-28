@@ -63,6 +63,7 @@ export function loadModelByName(modelName) {
     }
 
     isLoading = true;
+    hideLoader(false);
     group.clear(); // Clear previous model
 
     loader.load(
