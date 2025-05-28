@@ -4,6 +4,7 @@ import { state } from "./index.js";
 
 const leftArrow = document.getElementById("left");
 const rightArrow = document.getElementById("right");
+const loader = document.getElementById("loader");
 
 leftArrow.addEventListener("click", () => {
     state.modelIndex = emod(state.modelIndex - 1, MODELS.length); 
@@ -23,4 +24,12 @@ const info = document.getElementById("paragraph");
 export function loadItem(itemName, loadModelFunction){
     loadModelFunction(itemName);
     info.innerHTML = MODEL_MAP[itemName];
+}
+
+export function hideLoader(hidden){
+    if(hidden){
+        loader.classList.add("hidden");
+    } else{
+        loader.classList.remove("hidden");
+    }
 }

@@ -16,6 +16,18 @@ html, body {
     margin: 0.5rem;
 }
 
+.loading{
+    font-size: 24px;
+    color: gray;
+    animation: blink 1.2s infinite;
+    position: absolute;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1 }
+  50% { opacity: 0.5 }
+}
+
 .optionSection{
     background-color: rgba(35, 35, 35, 1);
     padding: 5px;

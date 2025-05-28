@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
+import { hideLoader } from './switchItem';
 
 const scene = new THREE.Scene();
 const texture = new THREE.TextureLoader().load("gallerybg.png");
@@ -53,7 +54,15 @@ const box = new THREE.Box3();
 const sizeVec = new THREE.Vector3();
 const centerVec = new THREE.Vector3();
 
+let isLoading = false;//to prevent multiple models loading at once
+
 export function loadModelByName(modelName) {
+    if(isLoading){
+        hideLoader(false);
+        return;
+    }
+
+    isLoading = true;
     group.clear(); // Clear previous model
 
     loader.load(
@@ -77,11 +86,13 @@ export function loadModelByName(modelName) {
         box.getSize(sizeVec); // Size already scaled
         camera.position.set(0, sizeVec.y * 0.5, sizeVec.z * 1.2);
         camera.lookAt(0, 0, 0);
+
+        isLoading = false;
+        hideLoader(true);
     }, undefined,
     function(error){
         console.error("Failed to load model:", error);
-    }
-  );
+    });
 }
 
 function saveCanvasScreenshot(fileName = "screenshot.png") {
